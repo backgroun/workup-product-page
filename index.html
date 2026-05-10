@@ -1147,35 +1147,50 @@ function goSlide(idx) {
   currentSlide = idx;
 }
 
-function updateColor(color) {
+function updateColor(color, showColorImage = false) {
+
   currentColor = color;
+
   currentImages = colorImages[color];
 
   slides.forEach((slide, index) => {
+
     const img = slide.querySelector("img");
 
     if (currentImages[index]) {
+
       img.src = currentImages[index];
+
       slide.style.display = "flex";
+
       dots[index].style.display = "block";
+
       thumbs[index].style.display = "flex";
+
       thumbs[index].textContent = thumbTexts[color][index];
+
     } else {
+
       slide.style.display = "none";
+
       dots[index].style.display = "none";
+
       thumbs[index].style.display = "none";
+
     }
+
   });
 
-if (color === "차콜") {
+  if (color === "차콜" && showColorImage) {
 
-  goSlide(4);
+    goSlide(4);
 
-} else {
+  } else {
 
-  goSlide(0);
+    goSlide(0);
 
-}
+  }
+
 }
 
 dots.forEach(dot => {
@@ -1217,7 +1232,7 @@ heroArea.addEventListener("touchend", e => {
   }
 });
 
-updateColor("차콜");
+updateColor(selectedColor, true);
 
 const sizeBtns = document.querySelectorAll(".size-btn");
 const sizeRows = document.querySelectorAll("#sizeTable tbody tr");
