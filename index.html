@@ -549,11 +549,17 @@ body {
   border-color: var(--dark);
 }
 
-  .header-logo {
-  height: 16px;
-  width: auto;
-  display: block;
-  object-fit: contain;
+.header-logo {
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+
+  height:26px;
+  width:auto;
+
+  display:block;
+  object-fit:contain;
 }
 
 .store-link {
