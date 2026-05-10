@@ -921,15 +921,29 @@ const dots = document.querySelectorAll('.hero-dot');
 const thumbs = document.querySelectorAll('.thumb');
 let currentSlide = 0;
 
+
 function goSlide(idx) {
+
+  if (!currentImages[idx]) return;
+
   slides.forEach(s => s.classList.remove('active'));
+
   dots.forEach(d => d.classList.remove('active'));
+
   thumbs.forEach(t => t.classList.remove('on'));
+
   slides[idx].classList.add('active');
+
   dots[idx].classList.add('active');
+
   thumbs[idx].classList.add('on');
+
   currentSlide = idx;
+
 }
+
+  
+
 dots.forEach(d => d.addEventListener('click', () => goSlide(+d.dataset.idx)));
 thumbs.forEach(t => t.addEventListener('click', () => goSlide(+t.dataset.idx)));
 
@@ -953,46 +967,72 @@ heroArea.addEventListener('mouseup', e => {
 });
 
 /* ── Color Picker + Hero Image Change ── */
-
 const colorImages = {
+  "차콜": [
+    "./image0.png", // 정면
+    "./image2.png", // 후면
+    "./image3.png", // 디테일
+    "./image4.png"  // 착용
+  ],
+  "그레이": [
+    "./image7.png"
+  ],
+  "베이지": [
+    "./image8.png"
+  ]
+};
 
-  "차콜": ["./image2.png",],
-  "그레이": ["./image7.png",],
-  "베이지": ["./image8.png",],
+const colorThumbLabels = {
+  "차콜": ["정면", "후면", "디테일", "착용"],
+  "그레이": ["그레이"],
+  "베이지": ["베이지"]
 };
 
 const cdots = document.querySelectorAll('.cdot');
-
 const colorName = document.querySelector('.color-name');
-
 const heroImgs = document.querySelectorAll('.hero-slide img');
+const heroSlides = document.querySelectorAll('.hero-slide');
+const heroDots = document.querySelectorAll('.hero-dot');
+const heroThumbs = document.querySelectorAll('.thumb');
+
+let currentImages = colorImages["차콜"];
+
+function updateHeroByColor(color) {
+  currentImages = colorImages[color];
+
+  heroSlides.forEach((slide, index) => {
+    const img = slide.querySelector('img');
+
+    if (currentImages[index]) {
+      img.src = currentImages[index];
+      slide.style.display = "flex";
+      heroDots[index].style.display = "block";
+      heroThumbs[index].style.display = "flex";
+      heroThumbs[index].textContent = colorThumbLabels[color][index];
+    } else {
+      slide.style.display = "none";
+      heroDots[index].style.display = "none";
+      heroThumbs[index].style.display = "none";
+    }
+  });
+
+  goSlide(0);
+}
 
 cdots.forEach(c => {
-
   c.addEventListener('click', () => {
-
     const selectedColor = c.dataset.color;
 
     cdots.forEach(d => d.classList.remove('on'));
-
     c.classList.add('on');
 
     colorName.textContent = selectedColor;
 
-    const images = colorImages[selectedColor];
-
-    heroImgs.forEach((img, index) => {
-
-      img.src = images[index];
-
-    });
-
-    goSlide(0);
-
+    updateHeroByColor(selectedColor);
   });
-
 });
 
+  
 /* ── Size Selector ── */
 const sizeBtns = document.querySelectorAll('.size-btn');
 const sizeRows = document.querySelectorAll('#sizeTable tbody tr');
