@@ -1167,7 +1167,31 @@ function updateColor(color) {
     }
   });
 
+ if (color === "차콜") {
+
+  slides.forEach(s => s.classList.remove('active'));
+
+  dots.forEach(d => d.classList.remove('active'));
+
+  thumbs.forEach(t => t.classList.remove('on'));
+
+  const firstImg = slides[0].querySelector('img');
+
+  firstImg.src = "./image2_1.png";
+
+  slides[0].classList.add('active');
+
+  dots[0].classList.add('active');
+
+  thumbs[0].classList.add('on');
+
+  currentSlide = 0;
+
+} else {
+
   goSlide(0);
+
+}
 }
 
 dots.forEach(dot => {
