@@ -437,6 +437,21 @@ body {
   transition: background 0.15s;
 }
 .modal-buy:hover { background:var(--black); }
+
+.style-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.scard-img img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  border-radius:12px 12px 0 0;
+}
+  
 </style>
 </head>
 <body>
@@ -608,38 +623,61 @@ body {
   </div>
 
   <!-- Accordion: 스타일링 제안 -->
-  <div class="acc open">
-    <div class="acc-header">
-      <span class="acc-title">스타일링 제안</span>
-      <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-    </div>
-    <div class="acc-body">
-      <div class="acc-inner">
-        <div class="style-grid">
-          <div class="scard">
-            <div class="scard-img">
-              <img src="./g1.png" alt="작업 현장 룩">
-            </div>
-            <div class="scard-cap">
-              <div class="scard-t">현장 스타일</div>
-              <div class="scard-d">카고 팬츠 + 안전화<br>실용적이면서 힙한 조합</div>
-            </div>
+ <div class="acc open">
+  <div class="acc-header">
+    <span class="acc-title">스타일링 제안</span>
+
+    <svg class="acc-arrow"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </div>
+
+  <div class="acc-body">
+    <div class="acc-inner">
+
+      <div class="style-grid">
+
+        <!-- 카드 1 -->
+        <div class="scard">
+          <div class="scard-img">
+            <img src="./g1.png" alt="작업 현장 룩">
           </div>
-          </div>
-          <div class="scard">
-            <div class="scard-img">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
-              <span>데일리 룩</span>
-            </div>
-            <div class="scard-cap">
-              <div class="scard-t">일상 스타일</div>
-              <div class="scard-d">데님 + 스니커즈<br>워커코어 무드 연출</div>
+
+          <div class="scard-cap">
+            <div class="scard-t">현장 스타일</div>
+
+            <div class="scard-d">
+              카고 팬츠 + 안전화<br>
+              실용적이면서 힙한 조합
             </div>
           </div>
         </div>
+
+        <!-- 카드 2 -->
+        <div class="scard">
+          <div class="scard-img">
+            <img src="./g2.png" alt="데일리 룩">
+          </div>
+
+          <div class="scard-cap">
+            <div class="scard-t">일상 스타일</div>
+
+            <div class="scard-d">
+              데님 + 스니커즈<br>
+              워커코어 무드 연출
+            </div>
+          </div>
+        </div>
+
       </div>
+
     </div>
   </div>
+</div>
 
   <!-- Accordion: 리뷰 -->
   <div class="acc open">
