@@ -483,7 +483,47 @@ body {
   object-fit: cover;
   display: block;
 }
+
+
+
+  .store-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 48vh;
+  overflow-y: auto;
+}
+
+.store-card {
+  padding: 14px;
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.store-name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.store-info {
+  font-size: 11px;
+  color: var(--gray-500);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.store-tel {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 500;
+}
 </style>
+
+  
 </head>
 <body>
 
@@ -913,38 +953,26 @@ wishBtn.addEventListener('click', () => {
   showToast(wishBtn.classList.contains('liked') ? '위시리스트에 추가했어요 ♥' : '위시리스트에서 제거했어요');
 });
 
-/* ── Purchase Modal ── */
+/* ── Store Modal ── */
+
 const overlay = document.getElementById('modalOverlay');
 const buyBtn = document.getElementById('buyBtn');
-let qty = 1;
+const modalBuy = document.getElementById('modalBuy');
 
-buyBtn.addEventListener('click', () => overlay.classList.add('show'));
-overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('show'); });
+buyBtn.addEventListener('click', () => {
+  overlay.classList.add('show');
 
-document.querySelectorAll('.modal-opt').forEach(o => {
-  o.addEventListener('click', () => {
-    document.querySelectorAll('.modal-opt').forEach(x => x.classList.remove('selected'));
-    o.classList.add('selected');
-  });
 });
 
-document.getElementById('qtyMinus').addEventListener('click', () => {
-  if (qty > 1) { qty--; updateQty(); }
-});
-document.getElementById('qtyPlus').addEventListener('click', () => {
-  if (qty < 10) { qty++; updateQty(); }
-});
-function updateQty() {
-  document.getElementById('qtyNum').textContent = qty;
-  document.getElementById('totalPrice').textContent = (14900 * qty).toLocaleString() + '원';
-}
+overlay.addEventListener('click', e => {
+  if (e.target === overlay) overlay.classList.remove('show');
 
-document.getElementById('modalBuy').addEventListener('click', () => {
+});
+
+modalBuy.addEventListener('click', () => {
+
   overlay.classList.remove('show');
-  buyBtn.classList.add('added');
-  buyBtn.textContent = '장바구니에 담김 ✓';
-  showToast('장바구니에 추가했어요!');
-  setTimeout(() => { buyBtn.classList.remove('added'); buyBtn.textContent = '구매하기'; }, 2500);
+
 });
 </script>
 
