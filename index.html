@@ -766,41 +766,45 @@ body {
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
-<!-- Purchase Modal -->
+<!-- Store Modal -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title">옵션 선택</div>
-    <div class="modal-options" id="modalColors">
-      <div class="modal-opt selected" data-val="차콜">
-        <span>차콜</span>
-        <span class="modal-opt-price">14,900원</span>
+
+    <div class="modal-title">오프라인 구매 가능 매장</div>
+
+    <div class="store-list">
+
+      <div class="store-card">
+        <div class="store-name">WORKUP 성수점</div>
+        <div class="store-info">서울 성동구 성수이로 00길 12</div>
+        <a class="store-tel" href="tel:0212345678">02-1234-5678</a>
       </div>
-      <div class="modal-opt" data-val="그레이">
-        <span>그레이</span>
-        <span class="modal-opt-price">14,900원</span>
+
+      <div class="store-card">
+        <div class="store-name">WORKUP 홍대점</div>
+        <div class="store-info">서울 마포구 와우산로 00길 8</div>
+        <a class="store-tel" href="tel:0277778888">02-7777-8888</a>
       </div>
-      <div class="modal-opt" data-val="베이지">
-        <span>베이지</span>
-        <span class="modal-opt-price">14,900원</span>
+
+      <div class="store-card">
+        <div class="store-name">WORKUP 부산 서면점</div>
+        <div class="store-info">부산 부산진구 중앙대로 00</div>
+        <a class="store-tel" href="tel:0511234567">051-123-4567</a>
       </div>
+
+      <div class="store-card">
+        <div class="store-name">WORKUP 대구 동성로점</div>
+        <div class="store-info">대구 중구 동성로 00</div>
+        <a class="store-tel" href="tel:0531234567">053-123-4567</a>
+      </div>
+
     </div>
-    <div class="modal-qty">
-      <span style="font-size:13px; color:var(--gray-500);">수량</span>
-      <div style="display:flex; align-items:center; gap:12px; margin-left:auto;">
-        <div class="qty-btn" id="qtyMinus">−</div>
-        <span class="qty-num" id="qtyNum">1</span>
-        <div class="qty-btn" id="qtyPlus">+</div>
-      </div>
-    </div>
-    <div class="modal-total">
-      <span class="modal-total-label">총 금액</span>
-      <span class="modal-total-price" id="totalPrice">14,900원</span>
-    </div>
-    <button class="modal-buy" id="modalBuy">장바구니 담기</button>
+
+    <button class="modal-buy" id="modalBuy">닫기</button>
   </div>
 </div>
-
+  
 <script>
 /* ── Hero Slider ── */
 const slides = document.querySelectorAll('.hero-slide');
