@@ -804,27 +804,7 @@ body {
   cursor: zoom-in;
 }
 
-  const imgModal = document.getElementById('imgModal');
-
-const modalImg = document.getElementById('modalImg');
-
-document.querySelectorAll('.scard-img img').forEach(img => {
-
-  img.addEventListener('click', () => {
-
-    modalImg.src = img.src;
-
-    imgModal.classList.add('show');
-
-  });
-
-});
-
-imgModal.addEventListener('click', () => {
-
-  imgModal.classList.remove('show');
-
-});
+ 
 </style>
   
 </head>
@@ -1377,6 +1357,30 @@ overlay.addEventListener("click", e => {
 modalBuy.addEventListener("click", () => {
   overlay.classList.remove("show");
 });
+
+const imgModal = document.getElementById('imgModal');
+const modalImg = document.getElementById('modalImg');
+
+document.querySelectorAll('.scard-img img').forEach(img => {
+
+  img.addEventListener('click', () => {
+
+    modalImg.src = img.src;
+
+    imgModal.classList.add('show');
+
+  });
+
+});
+
+imgModal.addEventListener('click', () => {
+
+  imgModal.classList.remove('show');
+
+});
+
+  
+  
 </script>
 
   <div class="img-modal" id="imgModal">
