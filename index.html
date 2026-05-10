@@ -45,13 +45,6 @@ body {
   position:relative;
 }
 
-.notch {
-  width:150px;
-  height:26px;
-  background:var(--dark);
-  border-radius:0 0 18px 18px;
-  margin:0 auto;
-}
 
 .header {
   height:64px;
@@ -71,14 +64,32 @@ body {
   height:20px;
 }
 
+.header-logo-link {
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  display: block;
+
+  height: 26px;
+
+}
+
 .header-logo {
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%, -50%);
-  height:26px;
-  width:auto;
-  display:block;
+
+  height: 26px;
+
+  width: auto;
+
+  display: block;
+
+  object-fit: contain;
+
 }
 
 /* HERO */
@@ -759,14 +770,17 @@ body {
 <body>
 
 <div class="phone">
-  <div class="notch"></div>
 
   <div class="header">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M19 12H5M12 19l-7-7 7-7"/>
     </svg>
 
-    <img src="./logo.png" alt="WORKUP" class="header-logo">
+<a href="./index.html" class="header-logo-link" aria-label="홈으로 새로고침">
+
+  <img src="./logo.png" alt="WORKUP" class="header-logo">
+
+</a>
 
     <div style="display:flex; gap:14px;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -784,24 +798,26 @@ body {
   <div class="hero" id="heroArea">
     <div class="hero-badge">NEW</div>
 
-    <div class="hero-slide active bg-dark" data-idx="0">
-      <img src="./image2_1.png" alt="대표 이미지">
-    </div>
 
-    <div class="hero-slide bg-dark" data-idx="1">
+
+    <div class="hero-slide bg-dark" data-idx="0">
       <img src="./image0.png" alt="정면">
     </div>
 
-    <div class="hero-slide bg-dark" data-idx="2">
+    <div class="hero-slide bg-dark" data-idx="1">
       <img src="./image2.png" alt="후면">
     </div>
 
-    <div class="hero-slide bg-light" data-idx="3">
+    <div class="hero-slide bg-light" data-idx="2">
       <img src="./image3.png" alt="디테일">
     </div>
 
-    <div class="hero-slide bg-dark" data-idx="4">
+    <div class="hero-slide bg-dark" data-idx="3">
       <img src="./image4.png" alt="착용">
+    </div>
+
+        <div class="hero-slide active bg-dark" data-idx="4">
+      <img src="./image2_1.png" alt="차콜">
     </div>
 
     <div class="hero-indicator">
@@ -813,13 +829,19 @@ body {
     </div>
   </div>
 
-  <div class="thumbs">
-    <div class="thumb on" data-idx="1">정면</div>
-    <div class="thumb" data-idx="2">후면</div>
-    <div class="thumb" data-idx="3">디테일</div>
-    <div class="thumb" data-idx="4">착용</div>
-    <div class="thumb" data-idx="0">차콜</div>
-  </div>
+<div class="thumbs">
+
+  <div class="thumb on" data-idx="0">정면</div>
+
+  <div class="thumb" data-idx="1">후면</div>
+
+  <div class="thumb" data-idx="2">디테일</div>
+
+  <div class="thumb" data-idx="3">착용</div>
+
+  <div class="thumb" data-idx="4">차콜</div>
+
+</div>
 
   <div class="info">
     <div class="info-brand">MADDOG</div>
@@ -1080,11 +1102,11 @@ body {
 <script>
 const colorImages = {
   "차콜": [
-    "./image2_1.png",
-    "./image0.png",
-    "./image2.png",
-    "./image3.png",
-    "./image4.png"
+ "./image0.png",
+  "./image2.png",
+  "./image3.png",
+  "./image4.png",
+  "./image2_1.png"
   ],
   "그레이": [
     "./image7.png"
@@ -1095,7 +1117,7 @@ const colorImages = {
 };
 
 const thumbTexts = {
-  "차콜": ["대표", "정면", "후면", "디테일", "착용"],
+  "차콜": ["정면", "후면", "디테일", "착용","차콜"],
   "그레이": ["그레이"],
   "베이지": ["베이지"]
 };
