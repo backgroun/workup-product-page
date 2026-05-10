@@ -451,7 +451,38 @@ body {
   display:block;
   border-radius:12px 12px 0 0;
 }
-  
+
+/* Hero 이미지 깨짐 방지 */
+.hero-slide > div {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 디테일컷처럼 전체가 보여야 하는 이미지는 contain */
+.hero-slide.bg-light img {
+  object-fit: contain;
+  background: #444;
+}
+
+/* 스타일링 카드 이미지 높이 충돌 수정 */
+.scard-img {
+  height: auto;
+}
+
+.scard-img img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
 </style>
 </head>
 <body>
