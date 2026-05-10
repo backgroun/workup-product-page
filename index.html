@@ -655,10 +655,13 @@ body {
     <div class="colors">
       <div class="colors-label">컬러 선택</div>
       <div class="colors-row">
-        <div class="cdot on" style="background:#2a2a2a;" data-color="차콜"></div>
-        <div class="cdot" style="background:#6b6b6b;" data-color="그레이"></div>
-        <div class="cdot" style="background:#c4b99a;" data-color="베이지"></div>
-        <span class="color-name">차콜</span>
+<div class="cdot on" style="background:#2a2a2a;" data-color="차콜"></div>
+
+<div class="cdot" style="background:#6b6b6b;" data-color="그레이"></div>
+
+<div class="cdot" style="background:#c4b99a;" data-color="베이지"></div>
+
+<span class="color-name">차콜</span>
       </div>
     </div>
   </div>
@@ -949,14 +952,79 @@ heroArea.addEventListener('mouseup', e => {
   }
 });
 
-/* ── Color Picker ── */
+/* ── Color Picker + Hero Image Change ── */
+
+const colorImages = {
+
+  "차콜": [
+
+    "./charcoal-front.png",
+
+    "./charcoal-back.png",
+
+    "./charcoal-detail.png",
+
+    "./charcoal-wear.png"
+
+  ],
+
+  "그레이": [
+
+    "./gray-front.png",
+
+    "./gray-back.png",
+
+    "./gray-detail.png",
+
+    "./gray-wear.png"
+
+  ],
+
+  "베이지": [
+
+    "./beige-front.png",
+
+    "./beige-back.png",
+
+    "./beige-detail.png",
+
+    "./beige-wear.png"
+
+  ]
+
+};
+
 const cdots = document.querySelectorAll('.cdot');
+
 const colorName = document.querySelector('.color-name');
-cdots.forEach(c => c.addEventListener('click', () => {
-  cdots.forEach(d => d.classList.remove('on'));
-  c.classList.add('on');
-  colorName.textContent = c.dataset.color;
-}));
+
+const heroImgs = document.querySelectorAll('.hero-slide img');
+
+cdots.forEach(c => {
+
+  c.addEventListener('click', () => {
+
+    const selectedColor = c.dataset.color;
+
+    cdots.forEach(d => d.classList.remove('on'));
+
+    c.classList.add('on');
+
+    colorName.textContent = selectedColor;
+
+    const images = colorImages[selectedColor];
+
+    heroImgs.forEach((img, index) => {
+
+      img.src = images[index];
+
+    });
+
+    goSlide(0);
+
+  });
+
+});
 
 /* ── Size Selector ── */
 const sizeBtns = document.querySelectorAll('.size-btn');
