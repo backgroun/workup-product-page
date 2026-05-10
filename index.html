@@ -1141,6 +1141,10 @@ body {
   </div>
 </div>
 
+<div class="img-modal" id="imgModal">
+  <img id="modalImg" src="" alt="">
+</div>
+
 <script>
 const colorImages = {
   "차콜": [
@@ -1255,7 +1259,7 @@ cdots.forEach(cdot => {
     const selectedColor = cdot.dataset.color;
     colorName.textContent = selectedColor;
 
-    updateColor(selectedColor);
+    updateColor(selectedColor, true);
   });
 });
 
@@ -1274,7 +1278,25 @@ heroArea.addEventListener("touchend", e => {
   }
 });
 
-updateColor(selectedColor, true);
+cdots.forEach(cdot => {
+
+  cdot.addEventListener("click", () => {
+
+    cdots.forEach(c => c.classList.remove("on"));
+
+    cdot.classList.add("on");
+
+    const selectedColor = cdot.dataset.color;
+
+    colorName.textContent = selectedColor;
+
+    updateColor(selectedColor, true);
+
+  });
+
+});
+
+updateColor("차콜", false);
 
 const sizeBtns = document.querySelectorAll(".size-btn");
 const sizeRows = document.querySelectorAll("#sizeTable tbody tr");
@@ -1383,8 +1405,6 @@ imgModal.addEventListener('click', () => {
   
 </script>
 
-  <div class="img-modal" id="imgModal">
-  <img id="modalImg" src="">
-</div>
+
 </body>
 </html>
