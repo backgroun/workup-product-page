@@ -764,7 +764,69 @@ body {
   color:#fff;
   font-size:15px;
 }
+
+  .img-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.img-modal.show {
+  display: flex;
+}
+
+.img-modal img {
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 16px;
+  animation: zoomIn .18s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.scard-img img {
+  cursor: zoom-in;
+}
+
+  const imgModal = document.getElementById('imgModal');
+
+const modalImg = document.getElementById('modalImg');
+
+document.querySelectorAll('.scard-img img').forEach(img => {
+
+  img.addEventListener('click', () => {
+
+    modalImg.src = img.src;
+
+    imgModal.classList.add('show');
+
+  });
+
+});
+
+imgModal.addEventListener('click', () => {
+
+  imgModal.classList.remove('show');
+
+});
 </style>
+  
 </head>
 
 <body>
@@ -1317,5 +1379,8 @@ modalBuy.addEventListener("click", () => {
 });
 </script>
 
+  <div class="img-modal" id="imgModal">
+  <img id="modalImg" src="">
+</div>
 </body>
 </html>
